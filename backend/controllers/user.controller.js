@@ -36,6 +36,7 @@ export const signup = async (req, res, next) => {
         name,
         password: hashedPassword,
         email,
+        blogs:[],  
     })
     try {
         await user.save()
@@ -61,7 +62,7 @@ export const login = async (req, res, next) => {
     if (!existingUser) {
         return res.status(400).json({ message: "Couldn't Find By This Email" })
     }
-    console.log(existingUser)
+    console.log("user details",existingUser)
     const isPasswordCorrect = bcrypt.compareSync(password, existingUser.password);
     if (!isPasswordCorrect) {
         // if(password!==existingUser.password){
