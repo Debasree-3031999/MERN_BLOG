@@ -5,11 +5,11 @@ import User from "../model/User.model"
 export const getAllBlog=async(req,res,next)=>{
     let blogs;
     try {
-        blogs=await Blog.find();
+        blogs=await Blog.find().populate('user');
     } catch (error) {
         console.log(error)
     }
-    if(!blogs){
+    if(!blogs){ 
         return res.status(400).json({message:"No Blogs Found"})
     }
     return res.status(200).json({blogs})
