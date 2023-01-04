@@ -36,6 +36,7 @@ function Blog([title,description,imageURL,userName]) {
       />
       <CardContent>
         <Typography variant="body2" color="text.secondary">
+          <b>{userName}</b> {":  "}
          {description}
         </Typography>
       </CardContent>

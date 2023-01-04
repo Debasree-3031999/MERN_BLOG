@@ -7,7 +7,7 @@ import { authActions } from '../store';
 function Header() {
     const dispatch=useDispatch()
     const isLoggedIn=useSelector(state => state.isLoggedIn);
-    const [value,setValue]= useState();
+    const [value,setValue]= useState(false);
   return (
    <AppBar position='sticky' sx={{
     background: "linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(5,65,64,0.6551034964767157) 73%)"}}>
@@ -19,6 +19,7 @@ function Header() {
             <Tabs textColor='inherit' value={value} onChange={(e,val)=>setValue(val)}>
                 <Tab LinkComponent={Link} to="/blogs" label="All Blogs"/>
                 <Tab LinkComponent={Link} to="myBlogs" label="My Blogs"/>
+                <Tab LinkComponent={Link} to="/blogs/add" label="Add Blog "/>
                 
             </Tabs>
         </Box>}

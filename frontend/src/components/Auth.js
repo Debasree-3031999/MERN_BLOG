@@ -39,9 +39,9 @@ function Auth() {
     e.preventDefault();
     console.log("o madhu",inputs )
     if(isSignup){
-      sendRequest("signup").then((data)=>localStorage.setItem("userId",data.user_id)).then(()=>dispatch(authActions.login())).then(()=>navigate("/blogs")).then(data=>console.log(data))
+      sendRequest("signup").then((data)=>localStorage.setItem("userId",JSON.stringify(data.user._id))).then(()=>dispatch(authActions.login())).then(()=>navigate("/blogs"))
     }else{
-      sendRequest().then((data)=>localStorage.setItem("userId",data.user_id)).then(()=>dispatch(authActions.login())).then(()=>navigate("/blogs")).then(data=>console.log(data))
+      sendRequest().then((data)=>localStorage.setItem("userId",JSON.stringify(data.user._id))).then(()=>dispatch(authActions.login())).then(()=>navigate("/blogs"))
     }
   }
   return (
@@ -53,7 +53,7 @@ function Auth() {
         padding={3}
         margin='auto'
         marginTop={15}
-        boxRadius={5}>
+        boxradius={5}>
           <Typography variant='h2' color='blue'>{isSignup ? "Signup" : "Login"}</Typography>
           {isSignup && <TextField onChange={handleChange} name='name' value={inputs.name}
           placeholder='Name' type={'text'} margin='normal'></TextField>}
