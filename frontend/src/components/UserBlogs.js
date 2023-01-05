@@ -4,14 +4,15 @@ import Blog from './Blog';
 
 function UserBlogs() {
   const [user, setUser] = useState()
-  const id=localStorage.getItem("userId");
+  const id=JSON.parse(localStorage.getItem("userId"));
   const sendRequest=async()=>{
     const res=await axios.get(`http://localhost:5000/api/blog/user/${id}`).catch(err=>console.log(err))
     const data=await res.data;
+    console.log("myBlog data: ",data)
     return data;
   };
   useEffect(()=>{
-    sendRequest().then((data)=>setUser(data.user))
+    sendRequest().then((data)=>setUser(data.blogs))
   },[]);
   console.log("userblog page ka blogs",user)
   return (
@@ -20,7 +21,7 @@ function UserBlogs() {
         <Blog key={index}
         title={blog.title}description={blog.description} imageURL={blog.image} userName={user.name}/>
       ))}
-    </div>
+    </div>  
   )
 }
 

@@ -7,6 +7,7 @@ function Blogs() {
   const sendRequest = async()=>{
     const res=await axios.get("http://localhost:5000/api/blog").catch(err => console.log(err));
     const data=await res.data;
+    console.log("fetched blog data: ",data)
     return data;
   };
   useEffect(()=>{
@@ -16,7 +17,7 @@ function Blogs() {
   return (
     <div>
       {blogs && blogs.map((blog,index)=>(
-        <Blog title={blog.title}description={blog.description} imageURL={blog.image} userName={blog.user.name}/>
+        <Blog key={index} title={blog.title} description={blog.description} imageURL={blog.image} userName={blog.user.name}/>
       ))}
         
     </div>

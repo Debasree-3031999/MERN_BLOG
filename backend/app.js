@@ -12,7 +12,7 @@ app.use("/api/blog",blogRouter);
 mongoose.connect("mongodb+srv://admin1234:soitanPranjal@cluster0.1iwdzcf.mongodb.net/MERN_BLOG?retryWrites=true&w=majority").then(()=>{
     app.listen(5000)
 }).then(()=>{
-    console.log("database connected")
+    console.log(" database connected")
 }).catch((error)=>{
     console.log(error)
 });

@@ -11,7 +11,7 @@ import Typography from '@mui/material/Typography';
 import { red } from '@mui/material/colors';
 
 
-function Blog([title,description,imageURL,userName]) {
+function Blog({title,description,imageURL,userName}) {
   return (
     <div>
       <Card sx={{ width: '40%', margin:'auto',mt:2,boxShadow:"5px 5px 10px #ccc",padding:2,":hover":{
@@ -20,13 +20,13 @@ function Blog([title,description,imageURL,userName]) {
       } }}> 
       <CardHeader
         avatar={
-          <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
+          <Avatar sx={{ bgcolor: red[500] }} >
             {userName}
           </Avatar>
         }
        
         title={title}
-        subheader="September 14, 2016"
+        subheader="jio"
       />
       <CardMedia
         component="img"
