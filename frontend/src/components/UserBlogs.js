@@ -12,14 +12,16 @@ function UserBlogs() {
     return data;
   };
   useEffect(()=>{
-    sendRequest().then((data)=>setUser(data.blogs))
+    sendRequest().then((data)=>setUser(data.user))
   },[]);
   console.log("userblog page ka blogs",user)
   return (
     <div>
      {user && user.blogs && user.blogs.map((blog,index)=>(
         <Blog key={index}
-        title={blog.title}description={blog.description} imageURL={blog.image} userName={user.name}/>
+        id={blog._id}
+        isUser={true}
+        title={blog.title} date={blog.date} description={blog.description} imageURL={blog.image} userName={user.name}/>
       ))}
     </div>  
   )

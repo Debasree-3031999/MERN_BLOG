@@ -6,27 +6,48 @@ import CardMedia from '@mui/material/CardMedia';
 import CardContent from '@mui/material/CardContent';
 
 import Avatar from '@mui/material/Avatar';
+import {Box} from '@mui/material';
+import EditIcon from '@mui/icons-material/Edit';
+import DeleteIcon from '@mui/icons-material/Delete';
 
 import Typography from '@mui/material/Typography';
 import { red } from '@mui/material/colors';
+import { IconButton } from '@mui/material';
+ import {useNavigate} from 'react-router-dom'
 
 
-function Blog({title,description,imageURL,userName}) {
+function Blog({title,date,description,imageURL,userName,isUser,id}) {
+  console.log("ID: ",id)
+  const navigate=useNavigate();
+  const handleEdit=(e)=>{
+    navigate(`/myBlogs/${id}` )
+    console.log(id)
+  }
+  console.log(title,isUser)
+  var utc=date;
+  var local=new Date(utc);
+  console.log(typeof(local.toString()))
   return (
     <div>
       <Card sx={{ width: '40%', margin:'auto',mt:2,boxShadow:"5px 5px 10px #ccc",padding:2,":hover":{
         boxShadow:"10px 10px 20px #ccc"
 
       } }}> 
+      {isUser && (
+        <Box display='flex'>
+          <IconButton onClick={handleEdit} sx={{marginLeft:'auto'}}><EditIcon/></IconButton>
+          {/* <IconButton onClick={handleDelete} ><DeleteIcon/></IconButton> */}
+        </Box>
+      )}
       <CardHeader
         avatar={
-          <Avatar sx={{ bgcolor: red[500] }} >
-            {userName}
+          <Avatar  sx={{ bgcolor:'red'}}aria-label='recipe' >
+            {userName ? userName.charAt(0) : ""}
           </Avatar>
         }
        
         title={title}
-        subheader="jio"
+        subheader={local.toString()}
       />
       <CardMedia
         component="img"

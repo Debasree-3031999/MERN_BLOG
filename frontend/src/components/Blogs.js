@@ -11,13 +11,21 @@ function Blogs() {
     return data;
   };
   useEffect(()=>{
-    sendRequest().then(data =>setBlogs(data.blogs))
+    sendRequest().then(data =>
+      
+      setBlogs(data.blogs))
   },[]);
-  console.log("blogs page ka blog",blogs);
+  let abcd=JSON.parse(localStorage.getItem('userId'))
+  console.log("blogs page ka blog",blogs,abcd);
   return (
     <div>
       {blogs && blogs.map((blog,index)=>(
-        <Blog key={index} title={blog.title} description={blog.description} imageURL={blog.image} userName={blog.user.name}/>
+        <Blog key={index} 
+        id={blog._id}
+        
+        isUser={abcd===blog.user._id}
+        
+        title={blog.title} date={blog.date} description={blog.description} imageURL={blog.image} userName={blog.user.name}/>
       ))}
         
     </div>

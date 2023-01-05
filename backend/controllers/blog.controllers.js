@@ -32,6 +32,7 @@ export const addBlog = async (req, res, next) => {
         description,
         image,
         user,
+        date:Date.now()
     });
     try {
         const session = await mongoose.startSession();
