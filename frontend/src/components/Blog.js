@@ -39,7 +39,7 @@ function Blog({title,date,description,imageURL,userName,isUser,id}) {
   console.log(typeof(local.toString()))
   return (
     <div>
-      <Card sx={{ width: '40%', margin:'auto',mt:2,boxShadow:"5px 5px 10px #ccc",padding:2,":hover":{
+      <Card sx={{ bgcolor:'#5656',width: '40%', margin:'auto',mt:2,boxShadow:"5px 5px 10px #ccc",padding:2,":hover":{
         boxShadow:"10px 10px 20px #ccc"
 
       } }}> 
@@ -64,10 +64,11 @@ function Blog({title,date,description,imageURL,userName,isUser,id}) {
         height="194"
         image={imageURL }
         alt="Paella dish"
+        width='100px'
       />
       
       <CardContent>
-      <hr/>
+      <hr />
       <br/>
         <Typography variant="body2" color="text.secondary">
           <b>{userName}</b> {":  "}
