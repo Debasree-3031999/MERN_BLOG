@@ -6,7 +6,7 @@ function UserBlogs() {
   const [user, setUser] = useState()
   const id=JSON.parse(localStorage.getItem("userId"));
   const sendRequest=async()=>{
-    const res=await axios.get(`http://localhost:5000/api/blog/user/${id}`).catch(err=>console.log(err))
+    const res=await axios.get(`https://mern-blog-api-5sbk.onrender.com/api/blog/user/${id}`).catch(err=>console.log(err))
     const data=await res.data;
     console.log("myBlog data: ",data)
     return data;

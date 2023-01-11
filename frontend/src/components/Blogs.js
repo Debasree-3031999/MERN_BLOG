@@ -5,7 +5,7 @@ import Blog from './Blog';
 function Blogs() {
   const [blogs, setBlogs] = useState();
   const sendRequest = async()=>{
-    const res=await axios.get("http://localhost:5000/api/blog").catch(err => console.log(err));
+    const res=await axios.get("https://mern-blog-api-5sbk.onrender.com/api/blog").catch(err => console.log(err));
     const data=await res.data;
     console.log("fetched blog data: ",data)
     return data;

@@ -25,7 +25,7 @@ function Blog({title,date,description,imageURL,userName,isUser,id}) {
     console.log(id)
   }
   const deleteRequest = async () =>{
-    const res = await axios.delete(`http://localhost:5000/api/blog/${id}`).catch(err=>console.log(err));
+    const res = await axios.delete(`https://mern-blog-api-5sbk.onrender.com/api/blog/${id}`).catch(err=>console.log(err));
     const data=await res.data;
     console.log("delete successfull", data);
     return data;
