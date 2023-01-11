@@ -8,11 +8,12 @@ app.use(cors());
 app.use(express.json()) 
 app.use("/api/user",router);
 app.use("/api/blog",blogRouter);
+const PORT=process.env.PORT || 5001;
 
 mongoose.connect("mongodb+srv://admin1234:soitanPranjal@cluster0.1iwdzcf.mongodb.net/MERN_BLOG?retryWrites=true&w=majority").then(()=>{
-    app.listen(5000)
+    app.listen(PORT)
 }).then(()=>{
-    console.log(" database connected")
+    console.log(`database connected at ${PORT}`)
 }).catch((error)=>{
     console.log(error)
 });
