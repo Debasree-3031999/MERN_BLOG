@@ -8,6 +8,7 @@ import BlogDetail from "./components/BlogDetail";
 import AddBlog from "./components/AddBlog";
 import { useDispatch, useSelector } from "react-redux";
 import { authActions } from "./store";
+import Background from "./components/Background";
 
  
 function App() {
@@ -21,8 +22,10 @@ function App() {
   },[dispath])
   return <React.Fragment>
     <header><Header/></header>
+    
     <main>
       <Routes>
+      <Route path="/" element={<Background/>}></Route>
         {! isLoggedIn ?
         <Route path="/auth" element={<Auth/>}></Route> :<>
         <Route path="/blogs" element={<Blogs/>}></Route>
