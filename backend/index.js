@@ -18,7 +18,7 @@ mongoose.connect("mongodb+srv://admin1234:soitanPranjal@cluster0.1iwdzcf.mongodb
     console.log(error)
 });
 
-// app.use("/",(req,res,next)=>{
+// app.use("/",(req,res,next)=>{z
 //     res.send("Hello world")  
 // });
 
